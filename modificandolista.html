@@ -2,8 +2,21 @@
 <html lang="en">
 <head>
     <script type="text/javascript">
-       
-        
+    function adicionarIngredientes() {
+        var ing = document.getElementById('ingrediente').value;  // Salvando o valor digitado no INPUT
+        var listahtml = document.getElementById('lista').innerHTML;  // Sando a lista de ingredientes 
+
+        if(ing == "") {
+            document.getElementById('alert').innerHTML = "Por favor preencha o campo...";
+            document.getElementById('alert').style.display = 'flex';
+        } else {
+ 
+            listahtml = listahtml+"<li>"+ing+"</li>";
+            document.getElementById('lista').innerHTML = listahtml;
+        }
+
+
+    }
     </script>
     <style>
         * {box-sizing: border-box; margin: 0; padding: 0;}
@@ -41,7 +54,16 @@
         ul {
             margin-top: 20px;
         }
-    
+        
+        span#alert {
+            display: none;
+            font-size: 12px;
+            padding:5px;
+            color: #FFF;
+            background-color: rgba(236, 24, 24, 0.774);
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,11 +77,13 @@
         <hr/>
 
         <label>
-            <input type="text" name="ingrediente" id="ingrediente"  placeholder="Adionar Ingrediente..."/>
-            <button onclick="">Adicionar</button>
-        </label>
+            <input type="text" name="ingrediente" id="ingrediente"  autofocus placeholder="Adionar Ingrediente..."/>
 
-        <ul>
+            <button onclick="adicionarIngredientes()">Adicionar</button>
+        </label>
+        <span id="alert"></span>
+
+        <ul id="lista">
             <li>Frango</li>
             
         </ul>
