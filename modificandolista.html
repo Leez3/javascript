@@ -6,15 +6,20 @@
         var ing = document.getElementById('ingrediente').value;  // Salvando o valor digitado no INPUT
         var listahtml = document.getElementById('lista').innerHTML;  // Sando a lista de ingredientes 
 
+
         if(ing == "") {
             document.getElementById('alert').innerHTML = "Por favor preencha o campo...";
             document.getElementById('alert').style.display = 'flex';
+            
         } else {
- 
+            
             listahtml = listahtml+"<li>"+ing+"</li>";
             document.getElementById('lista').innerHTML = listahtml;
+
+            document.getElementById('ingrediente').value = "";  // NECESSARIO COLOCAR O INPUT QUE ESTA NO HTML E NAO A VARIAVEL PREENCHIDA
         }
 
+        document.getElementById('ingrediente').focus(); // NECESSARIO COLOCAR ID DO INPUT QUE ESTA NO HTML
 
     }
     </script>
